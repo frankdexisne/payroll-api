@@ -18,9 +18,14 @@ class CreateEmployeesTable extends Migration
             $table->string('lname');
             $table->string('fname');
             $table->string('mname');
+            $table->string('suffix');
             $table->unique(['lname', 'fname', 'mname']);
+            $table->date('dob');
+            $table->string('pob')->nullable($value = true);
             $table->string('email_address');
             $table->string('contact_no');
+            $table->date('date_hired');
+            $table->date('date_resigned')->nullable($value = true);
             $table->bigInteger('gender_id')->unsigned();
             $table->foreign('gender_id')->references('id')->on('genders');
             $table->bigInteger('status_id')->unsigned();
@@ -29,6 +34,10 @@ class CreateEmployeesTable extends Migration
             $table->foreign('department_id')->references('id')->on('departments');
             $table->bigInteger('position_id')->unsigned();
             $table->foreign('position_id')->references('id')->on('positions');
+            $table->string('sss_no')->nullable($value = true);
+            $table->string('pagibig_no')->nullable($value = true);
+            $table->string('philhealth_no')->nullable($value = true);
+            $table->string('tin_no')->nullable($value = true);
             $table->timestamps();
         });
     }

@@ -22,8 +22,13 @@ class CreateFamiliesTable extends Migration
             $table->string('lname');
             $table->string('fname');
             $table->string('mname');
-            $table->string('occupation');
-            $table->string('contact_no');
+            $table->string('suffix')->nullable($value = true);
+            $table->unique(['lname', 'fname', 'mname']);
+            $table->date('dob')->nullable($value = true);
+            $table->string('contact_no')->nullable($value = true);
+            $table->string('occupation')->nullable($value = true);
+            $table->string('occupation_address')->nullable($value = true);
+            $table->string('occupation_telephone_no')->nullable($value = true);
             $table->timestamps();
         });
     }

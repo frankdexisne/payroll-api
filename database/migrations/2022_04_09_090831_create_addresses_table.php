@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateAttendsTable extends Migration
+class CreateAddressesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateAttendsTable extends Migration
      */
     public function up()
     {
-        Schema::create('attends', function (Blueprint $table) {
+        Schema::create('addresses', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('employee_id')->unsigned();
             $table->foreign('employee_id')->references('id')->on('employees');
-            $table->date('attend_date');
-            $table->time('attend_in');
-            $table->time('attend_out');
-            $table->double('render_hours');
-            $table->string('remarks');
+            $table->integer('barangay_id')->unsigned();
+            $table->foreign('barangay_id')->references('id')->on('barangays');
+            $table->char('type', 1);
+            $table->string('street');
+            $table->string('others')->nullable($value = true);
             $table->timestamps();
         });
     }
@@ -33,6 +33,6 @@ class CreateAttendsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('attends');
+        Schema::dropIfExists('addresses');
     }
 }
