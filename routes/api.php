@@ -17,3 +17,9 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
+
+Route::get('/process-payroll/{cutoff}', [App\Api\PayrollController::class, 'processPayroll']);
+Route::post('/check-status/{cutoff}', [App\Api\PayrollController::class, 'checkStatus']);
+Route::post('/capture-log/{employeeNo}/{action}', [App\Api\FaceRecognition::class, 'captureLogs']);
+Route::get('/payroll-summary/{cutoff}', [App\Http\Controllers\ReportController::class, 'payrollSummary']);
+Route::get('/payslip/{payslip}', [App\Http\Controllers\ReportController::class, 'payslip']);

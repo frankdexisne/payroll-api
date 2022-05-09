@@ -1,11 +1,11 @@
 const video = document.querySelector('video')
 
-Promise.all([
-faceapi.nets.tinyFaceDetector.loadFromUri('./js/models'),
-faceapi.nets.faceLandmark68Net.loadFromUri('./js/models'),
-faceapi.nets.faceRecognitionNet.loadFromUri('./js/models'),
-faceapi.nets.faceExpressionNet.loadFromUri('./js/models')
-]).then(startVideo)
+// Promise.all([
+// // faceapi.nets.tinyFaceDetector.loadFromUri('./js/models'),
+// // faceapi.nets.faceLandmark68Net.loadFromUri('./js/models'),
+// // faceapi.nets.faceRecognitionNet.loadFromUri('./js/models'),
+// // faceapi.nets.faceExpressionNet.loadFromUri('./js/models')
+// ]).then(startVideo)
 
 function startVideo() {
     navigator.getUserMedia(
@@ -16,6 +16,9 @@ function startVideo() {
         err => console.error(err)
     )
 }
+
+
+
 
 video.addEventListener('play', () => {
     const canvas = faceapi.createCanvasFromMedia(video)

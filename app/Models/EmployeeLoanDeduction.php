@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class EmployeeLoanDeduction extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'loan_id',
+        'payslip_id',
+        'employee_loan_id',
+        'deduct_at',
+        'amount',
+    ];
 }

@@ -2,6 +2,10 @@
 
 namespace App\Providers;
 
+use App\Events\EmployeePunchIn;
+use App\Events\EmployeePunchOut;
+use App\Listeners\MarkAsLate;
+use App\Listeners\MarkAsUndertime;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
@@ -18,6 +22,12 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
+        EmployeePunchIn::class => [
+            MarkAsLate::class
+        ],
+        EmployeePunchOut::class => [
+            MarkAsUndertime::class
+        ]
     ];
 
     /**

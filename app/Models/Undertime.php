@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Undertime extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'employee_id',
+        'date_commited',
+        'minutes_commited'
+    ];
 }

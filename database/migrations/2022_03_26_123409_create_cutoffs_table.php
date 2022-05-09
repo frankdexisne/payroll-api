@@ -15,9 +15,12 @@ class CreateCutoffsTable extends Migration
     {
         Schema::create('cutoffs', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
+            $table->tinyInteger('year');
+            $table->string('month', 2);
+            $table->string('payroll_period');
             $table->date('from');
             $table->date('to');
+            $table->integer('period');
             $table->timestamps();
         });
     }

@@ -15,10 +15,11 @@ class CreateLoanDeductionsTable extends Migration
     {
         Schema::create('loan_deductions', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('loan_id')->unsigned();
-            $table->foreign('loan_id')->references('id')->on('loans');
-            $table->bigInteger('deduction_id')->unsigned();
-            $table->foreign('deduction_id')->references('id')->on('deductions');
+            $table->bigInteger('employee_loan_id')->unsigned();
+            $table->foreign('employee_loan_id')->references('id')->on('employee_loans');
+            $table->bigInteger('payslip_id')->unsigned();
+            $table->foreign('payslip_id')->references('id')->on('payslips');
+            $table->date('deduct_at');
             $table->double('amount');
             $table->timestamps();
         });

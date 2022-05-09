@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class EmployeeLoan extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'balance',
+        'settled'
+    ];
 }

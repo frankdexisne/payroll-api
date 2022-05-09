@@ -19,10 +19,21 @@ class CreatePayslipsTable extends Migration
             $table->foreign('cutoff_id')->references('id')->on('cutoffs');
             $table->bigInteger('employee_id')->unsigned();
             $table->foreign('employee_id')->references('id')->on('employees');
+            $table->double('no_of_days')->default(0);
             $table->double('basic');
-            $table->double('overtime');
-            $table->double('adjustment');
-            $table->double('net');
+            $table->double('overtime')->default(0);
+            $table->double('holiday')->nullable($value = true);
+            $table->double('leave')->nullable($value = true);
+            $table->double('adjustment_add')->default(0);
+            $table->double('adjustment_less');
+            $table->double('late');
+            $table->double('undertime');
+            $table->double('sss');
+            $table->double('philhealth');
+            $table->double('pagibig');
+            $table->double('tax');
+            $table->double('sss_loan');
+            $table->double('pagibig_loan');
             $table->timestamps();
         });
     }

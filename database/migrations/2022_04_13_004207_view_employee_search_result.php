@@ -45,6 +45,8 @@ class ViewEmployeeSearchResult extends Migration
                 departments ON employees.department_id = departments.id
             JOIN
                 positions ON employees.position_id = positions.id
+            WHERE
+                ISNULL(employees.date_resigned)
             ORDER BY employees.lname
         SQL;
     }

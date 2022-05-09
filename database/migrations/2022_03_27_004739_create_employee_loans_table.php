@@ -25,6 +25,7 @@ class CreateEmployeeLoansTable extends Migration
             $table->double('amortization');
             $table->double('settled');
             $table->double('balance');
+            $table->integer('period');
             $table->timestamps();
         });
     }

@@ -17,6 +17,7 @@ class CreateLeavesTable extends Migration
             $table->id();
             $table->string('name');
             $table->double('no_of_days');
+            $table->integer('gender_id')->nullable($value = true);
             $table->timestamps();
         });
     }

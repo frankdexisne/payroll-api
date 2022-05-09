@@ -19,9 +19,9 @@ class CreateAttendsTable extends Migration
             $table->foreign('employee_id')->references('id')->on('employees');
             $table->date('attend_date');
             $table->time('attend_in');
-            $table->time('attend_out');
-            $table->double('render_hours');
-            $table->string('remarks');
+            $table->time('attend_out')->nullable($value = true);
+            $table->double('render_hours')->default(0);
+            $table->string('remarks')->nullable($value = true);
             $table->timestamps();
         });
     }
