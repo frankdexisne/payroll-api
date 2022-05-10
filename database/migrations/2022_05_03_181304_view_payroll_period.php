@@ -33,7 +33,7 @@ class ViewPayrollPeriod extends Migration
             CREATE VIEW  `view_payroll_periods` AS
             SELECT
                 cutoffs.id,
-                CONCAT(MONTHNAME(`to`), ' ', `cutoffs`.`payoll_period`, ', ', `year`) AS payroll_range
+                CONCAT(MONTHNAME(`to`), ' ', `cutoffs`.`payroll_period`, ', ', `year`) AS payroll_range
             FROM
                 cutoffs
             WHERE
