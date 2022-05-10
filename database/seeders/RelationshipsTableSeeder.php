@@ -20,6 +20,12 @@ class RelationshipsTableSeeder extends Seeder
             ],
             [
                 'name' => 'Mother'
+            ],
+            [
+                'name' => 'Children'
+            ],
+            [
+                'name' => 'Spouse'
             ]
         ];
         Relationship::upsert($data, ['name'], ['name']);
