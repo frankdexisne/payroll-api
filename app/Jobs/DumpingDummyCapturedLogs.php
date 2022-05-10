@@ -76,7 +76,7 @@ class DumpingDummyCapturedLogs implements ShouldQueue
 
     public function captureLogsDump($employeeNo, $action, $date, $time)
     {
-        $employee = $this->findByEmployeeNo($employeeNo);
+        $employee = Employee::where('employee_no', $employeeNo)->first();
         $shift = Shift::where('shift', $this->currentShift($action))->first();
 
         if (!$employee) {
