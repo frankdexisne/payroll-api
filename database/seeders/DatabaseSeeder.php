@@ -27,6 +27,5 @@ class DatabaseSeeder extends Seeder
         $this->call(UsersTableSeeder::class);
         $this->call(SSSTableSeeder::class);
         $this->call(TaxTableSeeder::class);
-        Artisan::call('db:seed --class=\\AddressSeeder');
     }
 }
