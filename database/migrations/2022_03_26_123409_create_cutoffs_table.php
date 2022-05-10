@@ -21,6 +21,7 @@ class CreateCutoffsTable extends Migration
             $table->date('from');
             $table->date('to');
             $table->integer('period');
+            $table->integer('status');
             $table->timestamps();
         });
     }
